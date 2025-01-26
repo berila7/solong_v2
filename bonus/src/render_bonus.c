@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 12:12:51 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/25 19:40:44 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 11:03:29 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	put_image(t_game *game, void *img, int x, int y)
 static void	render_tile(t_game *game, int x, int y)
 {
 	char	tile;
-	
+
 	tile = game->map[y][x];
 	put_image(game, game->floor, x, y);
 	if (tile == WALL)
@@ -29,7 +29,8 @@ static void	render_tile(t_game *game, int x, int y)
 	else if (tile == PLAYER)
 		put_image(game, game->player_img, x, y);
 	else if (tile == COLLECT)
-		put_image(game, game->collect_frames[game->collect_current_frame], x, y);
+		put_image(game,
+			game->collect_frames[game->collect_current_frame], x, y);
 	else if (tile == EXIT)
 		put_image(game, game->exit_img, x, y);
 	else if (tile == ENEMY)
@@ -52,5 +53,5 @@ int	render_map(t_game *game)
 		}
 		y++;
 	}
-	return (1);	
+	return (1);
 }

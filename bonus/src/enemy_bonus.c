@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 19:25:02 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/25 20:30:52 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 10:35:55 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 static int	is_blocked(t_game *game, int new_y)
 {
 	char	next_pos;
+
 	if (new_y < 0 || new_y >= game->height)
 		return (1);
 	next_pos = game->map[new_y][game->enemy_x];
-	return (next_pos == WALL || next_pos == COLLECT || next_pos == EXIT);
+	return (next_pos == WALL || next_pos == COLLECT
+		|| next_pos == EXIT || next_pos == ENEMY);
 }
 
 static int	player_die(t_game *game, int new_y)
@@ -33,7 +35,7 @@ static int	player_die(t_game *game, int new_y)
 void	update_enemy(t_game *game)
 {
 	int	new_y;
-	
+
 	game->enemy_timer++;
 	if (game->enemy_timer < ENEMY_SPEED)
 		return ;

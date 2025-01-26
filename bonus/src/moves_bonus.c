@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 12:49:33 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/26 10:19:07 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 11:00:24 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	update_player_position(t_game *game, int new_y, int new_x)
 {
 	int	old_x;
 	int	old_y;
-	
+
 	find_char_pos(game, &old_x, &old_y, PLAYER);
 	if (game->map[old_y][old_x] == PLAYER
 		&& old_y == game->exit_pos_y
@@ -27,7 +27,7 @@ static void	update_player_position(t_game *game, int new_y, int new_x)
 	game->map[new_y][new_x] = PLAYER;
 }
 
-static void update_player_direction(t_game *game, int keycode)
+static void	update_player_direction(t_game *game, int keycode)
 {
 	if (keycode == KEYUP)
 		game->player_direction = P_UP;
@@ -40,7 +40,7 @@ static void update_player_direction(t_game *game, int keycode)
 	game->player_img = game->player_frames[game->player_direction];
 }
 
-static void	get_new_position(int keycode , int *new_x, int *new_y, int x, int y)
+static void	get_new_position(int keycode, int *new_x, int *new_y, int x, int y)
 {
 	*new_x = x;
 	*new_y = y;
@@ -66,7 +66,7 @@ static int	is_valid_move(t_game *game, int y, int x)
 	if (game->map[y][x] == EXIT && game->collect != 0)
 	{
 		game->exit_pos_x = x;
-        game->exit_pos_y = y;
+		game->exit_pos_y = y;
 		return (1);
 	}
 	if (game->map[y][x] == COLLECT)

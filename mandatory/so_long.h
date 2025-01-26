@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:11:52 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/25 13:57:59 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 10:28:10 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@
 # define ERR_MLX "Error\nMLX initialization failed\n"
 # define ERR_DIMEN "Error\nMap dimensions not set\n"
 # define LOAD_FAIL "Error\nFailed to load texture: %s\n"
+# define ERR_SCREEN "Error!\nMap is bigger then your screen\n"
 
 /* Colors*/
 # define RESET   "\033[0m"

@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 11:49:58 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/25 20:19:50 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 11:04:33 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,19 @@ void	*load_texture(t_game *game, char *path)
 static int	init_player_textures(t_game *game)
 {
 	game->player_frames[P_RIGHT] = load_texture(game,
-		"./bonus/textures/player/pl_r.xpm");
+			"./bonus/textures/player/pl_r.xpm");
 	game->player_frames[P_LEFT] = load_texture(game,
-		"./bonus/textures/player/pl_l.xpm");
+			"./bonus/textures/player/pl_l.xpm");
 	game->player_frames[P_UP] = load_texture(game,
-		"./bonus/textures/player/pl_up.xpm");
+			"./bonus/textures/player/pl_up.xpm");
 	game->player_frames[P_DOWN] = load_texture(game,
-		"./bonus/textures/player/pl_dw.xpm");
+			"./bonus/textures/player/pl_dw.xpm");
 	game->player_direction = P_DOWN;
 	game->player_img = game->player_frames[game->player_direction];
 	return (game->player_frames[P_RIGHT] && game->player_frames[P_LEFT]
 		&& game->player_frames[P_UP] && game->player_frames[P_DOWN]);
 }
+
 static int	init_basic_textures(t_game *game)
 {
 	game->wall = load_texture(game, "./bonus/textures/wall.xpm");
@@ -50,7 +51,7 @@ static int	init_basic_textures(t_game *game)
 	game->floor = load_texture(game, "./bonus/textures/floor.xpm");
 	game->enemy_img = load_texture(game, "./bonus/textures/enemy/e_1.xpm");
 	return (game->wall && game->floor && game->enemy_img
-			&& game->collect_img && game->exit_img);
+		&& game->collect_img && game->exit_img);
 }
 
 int	init_textures(t_game *game)

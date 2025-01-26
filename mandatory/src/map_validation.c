@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:36:06 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/24 20:48:47 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 10:28:21 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,11 @@ static int	check_map_chars(t_game *game)
 
 int	validate_map(t_game *game)
 {
+	if (game->height > 26 || game->width > 51)
+	{
+		print_error(ERR_SCREEN);
+		return (0);
+	}
 	if(!check_walls(game))
 	{
 		print_error(ERR_WALLS);

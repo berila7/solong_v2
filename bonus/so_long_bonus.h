@@ -6,12 +6,12 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:11:52 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/25 20:26:34 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 11:10:08 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include <mlx.h>
 # include <stdlib.h>
@@ -70,6 +70,7 @@
 # define ERR_DIMEN "Error\nMap dimensions not set\n"
 # define LOAD_FAIL "Error\nFailed to load texture: %s\n"
 # define ENE_CAUGHT "\nGame Over! Enemy caught you!\n"
+# define ERR_SCREEN "Error!\nMap is bigger then your screen\n"
 
 /* Colors*/
 # define RESET   "\033[0m"
@@ -91,7 +92,7 @@ typedef struct s_game
 	void	*floor;
 	void	*enemy_img;
 
-	char    **map;
+	char	**map;
 
 	void	*collect_frames[ANIMATION_FRAMES];
 	void	*player_frames[4];
@@ -99,11 +100,11 @@ typedef struct s_game
 	int		collect_current_frame;
 	int		collect_count;
 
-    int     height;
-    int		width;
-    int     collect;
-    int     exit;
-    int     player; 
+	int		height;
+	int		width;
+	int		collect;
+	int		exit;
+	int		player;
 	int		moves;
 	int		enemy_dir;
 	int		enemy_y;
@@ -111,14 +112,14 @@ typedef struct s_game
 	int		enemy_timer;
 	int		exit_pos_x;
 	int		exit_pos_y;
-	int     animation_timer;
+	int		animation_timer;
 }	t_game;
 
 t_game	*init_game(void);
 int		read_map(t_game *game, char *file);
 void	free_game(t_game *game);
 void	print_error(char *message);
-int     validate_map(t_game *game);
+int		validate_map(t_game *game);
 void	free_map(char **map, int height);
 int		check_path(t_game *game);
 int		init_game_window(t_game *game);
@@ -132,5 +133,8 @@ void	*load_texture(t_game *game, char *path);
 void	update_animations(t_game *game);
 void	init_animations(t_game *game);
 void	update_enemy(t_game *game);
+int		check_map_chars(t_game *game);
+int		check_walls(t_game *game);
+int		check_extension(char *filename);
 
 #endif
