@@ -6,11 +6,24 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 12:12:51 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/26 11:03:29 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 12:01:59 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long_bonus.h"
+
+static char	*display_moves(int n)
+{
+	char	*str;
+	char	*tmp;
+
+	str = ft_itoa(n);
+	if (!str)
+		return (NULL);
+	tmp = ft_strjoin("Moves: ", str);
+	free(str);
+	return (tmp);
+}
 
 static void	put_image(t_game *game, void *img, int x, int y)
 {
@@ -37,10 +50,22 @@ static void	render_tile(t_game *game, int x, int y)
 		put_image(game, game->enemy_img, x, y);
 }
 
+static void	render_moves(t_game *game)
+{
+	char	*moves_str;
+
+	moves_str = display_moves(game->moves);
+	if (moves_str)
+	{
+		mlx_string_put(game->mlx, game->win, 10, 20, 0xFFFFFF, moves_str);
+		free (moves_str);
+	}
+}
+
 int	render_map(t_game *game)
 {
-	int	y;
-	int	x;
+	int		y;
+	int		x;
 
 	y = 0;
 	while (y < game->height)
@@ -53,5 +78,6 @@ int	render_map(t_game *game)
 		}
 		y++;
 	}
+	render_moves(game);
 	return (1);
 }

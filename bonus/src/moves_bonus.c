@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 12:49:33 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/26 11:39:25 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 12:36:26 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,5 @@ void	move_player(t_game *game, int keycode)
 	{
 		update_player_position(game, game->player_y, game->player_x);
 		game->moves++;
-		ft_printf("Moves: %d\n", game->moves);
 	}
 }

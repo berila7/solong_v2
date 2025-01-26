@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:36:06 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/26 10:58:08 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 12:13:22 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ static void	count_elements(t_game *game, char c)
 		game->exit++;
 	if (c == COLLECT)
 		game->collect++;
+	if (c == ENEMY)
+		game->enemy++;
 }
 
 static int	check_elemet_counts(t_game *game)
@@ -66,6 +68,11 @@ static int	check_elemet_counts(t_game *game)
 		print_error(ERR_COLLECT);
 		return (0);
 	}
+	if (game->enemy < 1)
+	{
+		print_error(EE_ENMY);
+		return (0);
+	}
 	return (1);
 }
 
@@ -77,6 +84,7 @@ int	check_map_chars(t_game *game)
 	game->player = 0;
 	game->exit = 0;
 	game->collect = 0;
+	game->enemy = 0;
 	i = 0;
 	while (game->map[i])
 	{

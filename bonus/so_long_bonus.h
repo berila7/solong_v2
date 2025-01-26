@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:11:52 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/26 11:34:11 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 12:34:44 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@
 # define LOAD_FAIL "Error\nFailed to load texture: %s\n"
 # define ENE_CAUGHT "\nGame Over! Enemy caught you!\n"
 # define ERR_SCREEN "Error!\nMap is bigger then your screen\n"
+# define EE_ENMY "Error\nMap must have at least one enemy\n"
 
 /* Colors*/
 # define RESET   "\033[0m"
@@ -108,6 +109,7 @@ typedef struct s_game
 	int		player;
 	int		moves;
 
+	int		enemy;
 	int		enemy_dir;
 	int		enemy_y;
 	int		enemy_x;
