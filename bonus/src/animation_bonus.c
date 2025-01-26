@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 16:24:09 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/26 11:05:30 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 11:48:54 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	init_animations(t_game *game)
 {
 	int		i;
-	char	*collect_paths[ANIMATION_FRAMES] = {
-		"./bonus/textures/collectable/c_1.xpm",
-		"./bonus/textures/collectable/c_2.xpm",
-		"./bonus/textures/collectable/c_3.xpm",
-		"./bonus/textures/collectable/c_4.xpm",
-		"./bonus/textures/collectable/c_5.xpm",
-	};
+	char	*collect_paths[ANIMATION_FRAMES];
+
+	collect_paths[0] = "./bonus/textures/collectable/c_1.xpm";
+	collect_paths[1] = "./bonus/textures/collectable/c_2.xpm";
+	collect_paths[2] = "./bonus/textures/collectable/c_3.xpm";
+	collect_paths[3] = "./bonus/textures/collectable/c_4.xpm";
+	collect_paths[4] = "./bonus/textures/collectable/c_5.xpm";
 	i = 0;
 	while (i < ANIMATION_FRAMES)
 	{

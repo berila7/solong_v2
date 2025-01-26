@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 12:49:33 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/26 11:00:24 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 11:39:25 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,16 @@ static void	update_player_direction(t_game *game, int keycode)
 	game->player_img = game->player_frames[game->player_direction];
 }
 
-static void	get_new_position(int keycode, int *new_x, int *new_y, int x, int y)
+static void	get_new_position(int keycode, t_game *game)
 {
-	*new_x = x;
-	*new_y = y;
 	if (keycode == KEYUP)
-		*new_y = y - 1;
+		game->player_y--;
 	else if (keycode == KEYDOWN)
-		*new_y = y + 1;
+		game->player_y++;
 	else if (keycode == KEYLEFT)
-		*new_x = x - 1;
+		game->player_x--;
 	else if (keycode == KEYRIGHT)
-		*new_x = x + 1;
+		game->player_x++;
 }
 
 static int	is_valid_move(t_game *game, int y, int x)
@@ -81,17 +79,12 @@ static int	is_valid_move(t_game *game, int y, int x)
 
 void	move_player(t_game *game, int keycode)
 {
-	int	x;
-	int	y;
-	int	new_y;
-	int	new_x;
-
-	find_char_pos(game, &x, &y, PLAYER);
-	get_new_position(keycode, &new_x, &new_y, x, y);
+	find_char_pos(game, &game->player_x, &game->player_y, PLAYER);
+	get_new_position(keycode, game);
 	update_player_direction(game, keycode);
-	if (is_valid_move(game, new_y, new_x))
+	if (is_valid_move(game, game->player_y, game->player_x))
 	{
-		update_player_position(game, new_y, new_x);
+		update_player_position(game, game->player_y, game->player_x);
 		game->moves++;
 		ft_printf("Moves: %d\n", game->moves);
 	}

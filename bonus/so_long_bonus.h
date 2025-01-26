@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:11:52 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/26 11:10:08 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 11:34:11 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ typedef struct s_game
 	int		player_direction;
 	int		collect_current_frame;
 	int		collect_count;
+	int		animation_timer;
 
 	int		height;
 	int		width;
@@ -106,13 +107,17 @@ typedef struct s_game
 	int		exit;
 	int		player;
 	int		moves;
+
 	int		enemy_dir;
 	int		enemy_y;
 	int		enemy_x;
 	int		enemy_timer;
+
+	int		player_x;
+	int		player_y;
+
 	int		exit_pos_x;
 	int		exit_pos_y;
-	int		animation_timer;
 }	t_game;
 
 t_game	*init_game(void);
