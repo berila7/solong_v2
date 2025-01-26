@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:12:52 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/25 13:53:12 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 11:22:51 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char	**copy_map(t_game *game)
 	if (!copy)
 		return (NULL);
 	i = 0;
-	while(i < game->height)
+	while (i < game->height)
 	{
 		copy[i] = ft_strdup(game->map[i]);
 		if (!copy[i])
@@ -91,7 +91,7 @@ int	check_path(t_game *game)
 	collect_count = game->collect;
 	exit_count = game->exit;
 	flood_fill(temp_map, player_x, player_y, game);
-	if(game->collect != 0 || game->exit != 0)
+	if (game->collect != 0 || game->exit != 0)
 	{
 		free_map(temp_map, game->height);
 		print_error(ERR_PATH);
@@ -102,4 +102,3 @@ int	check_path(t_game *game)
 	free_map(temp_map, game->height);
 	return (1);
 }
-

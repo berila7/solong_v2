@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 10:37:02 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/25 14:05:30 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 11:11:38 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ static	void	free_textures(t_game *game)
 		mlx_destroy_image(game->mlx, game->floor);
 }
 
-void    free_game(t_game *game)
+void	free_game(t_game *game)
 {
-    if (!game)
-        return;
+	if (!game)
+		return ;
 	if (game->mlx)
 	{
 		free_textures(game);
@@ -52,7 +52,7 @@ void    free_game(t_game *game)
 			mlx_destroy_window(game->mlx, game->win);
 		free(game->mlx);
 	}
-    if (game->map)
-        free_map(game->map, game->height);
-    free(game);
+	if (game->map)
+		free_map(game->map, game->height);
+	free(game);
 }

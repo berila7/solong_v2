@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 12:12:51 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/25 12:20:54 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 11:23:31 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	put_image(t_game *game, void *img, int x, int y)
 static void	render_tile(t_game *game, int x, int y)
 {
 	char	tile;
-	
+
 	tile = game->map[y][x];
 	put_image(game, game->floor, x, y);
 	if (tile == WALL)
@@ -50,5 +50,5 @@ int	render_map(t_game *game)
 		}
 		y++;
 	}
-	return (1);	
+	return (1);
 }

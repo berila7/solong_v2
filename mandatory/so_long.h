@@ -6,7 +6,7 @@
 /*   By: mberila <mberila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:11:52 by mberila           #+#    #+#             */
-/*   Updated: 2025/01/26 10:28:10 by mberila          ###   ########.fr       */
+/*   Updated: 2025/01/26 11:25:43 by mberila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,13 @@ typedef struct s_game
 	void	*exit_img;
 	void	*floor;
 
-	char    **map;
+	char	**map;
 
-    int     height;
-    int		width;
-    int     collect;
-    int     exit;
-    int     player; 
+	int		height;
+	int		width;
+	int		collect;
+	int		exit;
+	int		player;
 	int		moves;
 	int		exit_pos_x;
 	int		exit_pos_y;
@@ -96,7 +96,7 @@ t_game	*init_game(void);
 int		read_map(t_game *game, char *file);
 void	free_game(t_game *game);
 void	print_error(char *message);
-int     validate_map(t_game *game);
+int		validate_map(t_game *game);
 void	free_map(char **map, int height);
 int		check_path(t_game *game);
 int		init_game_window(t_game *game);
@@ -106,5 +106,8 @@ int		render_map(t_game *game);
 void	find_player_pos(t_game *game, int *x, int *y);
 int		close_window(t_game *game);
 void	move_player(t_game *game, int keycode);
+int		check_extension(char *filename);
+int		check_walls(t_game *game);
+int		check_map_chars(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: mberila <mberila@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/08 11:55:01 by mberila           #+#    #+#              #
-#    Updated: 2025/01/26 10:15:57 by mberila          ###   ########.fr        #
+#    Updated: 2025/01/26 11:16:39 by mberila          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ SRCS		=	$(GNL_SRCS) \
 				mandatory/src/map_utils.c \
 				mandatory/src/map_validation.c \
 				mandatory/src/moves.c \
-				mandatory/src/path_validations.c \
+				mandatory/src/path_validation.c \
 				mandatory/src/render.c \
 				mandatory/src/textures.c \
 
