@@ -12,12 +12,6 @@
 
 #include "../so_long.h"
 
-void	f(void)
-{
-	system("leaks so_long");
-	system("lsof | grep '^so_long'");
-}
-
 int	key_hook(int keycode, t_game *game)
 {
 	if (keycode == ESCKEY)
@@ -64,7 +58,6 @@ int	main(int ac, char **av)
 {
 	t_game	*game;
 
-	atexit (f);
 	if (ac != 2)
 	{
 		print_error(ERR_MAP_ARG);
@@ -79,6 +72,5 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	mlx_loop(game->mlx);
-	free_game(game);
 	return (0);
 }
