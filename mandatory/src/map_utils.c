@@ -20,9 +20,7 @@ static int	count_lines(char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-	{
 		return (print_error(ERR_MAP_OPEN), -1);
-	}
 	lines = 0;
 	line = get_next_line(fd);
 	while (line)
