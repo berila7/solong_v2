@@ -15,10 +15,7 @@
 int	key_hook(int keycode, t_game *game)
 {
 	if (keycode == ESCKEY)
-	{
-		free_game(game);
-		exit(0);
-	}
+		close_window(game);
 	if (keycode == KEYUP || keycode == KEYDOWN
 		|| keycode == KEYLEFT || keycode == KEYRIGHT)
 	{
@@ -30,7 +27,8 @@ int	key_hook(int keycode, t_game *game)
 
 int	close_window(t_game *game)
 {
-	free_game(game);
+	if (game)
+		free_game(game);
 	exit(0);
 	return (0);
 }
